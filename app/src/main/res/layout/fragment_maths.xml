@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btn_sin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/btn_cos"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        android:text="Fonction Sin"/>
+
+
+    <Button
+        android:id="@+id/btn_cos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        android:text="Fonction Cos"/>
+
+    <Button
+        android:id="@+id/btn_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_cos"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        android:text="Fonction Exp"/>
+
+
+</RelativeLayout>

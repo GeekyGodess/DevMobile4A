@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 break;
 
             case R.id.navigation_bonus:
-                fragment = new BonusFragment();
+                fragment = new MathsFragment();
                 break;
         }
         return loadFragment(fragment);

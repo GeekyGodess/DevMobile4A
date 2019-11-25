@@ -24,7 +24,7 @@ public class VideoFragment extends Fragment {
         videoView = (VideoView) view.findViewById(R.id.videoView);
         MediaController mediaController = new MediaController(getContext());
         videoView.setMediaController(mediaController);
-        Uri video = Uri.parse("android.resource://" + getContext().getPackageName()+"/" + R.raw.amsterdam);
+        Uri video = Uri.parse("android.resource://" + getContext().getPackageName()+"/" + R.raw.maths);
         videoView.setVideoURI(video);
         mediaController.setAnchorView(videoView);
         videoView.start();
