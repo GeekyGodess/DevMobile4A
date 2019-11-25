@@ -1,5 +1,6 @@
 package com.example.superapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -33,7 +34,9 @@ public class SinFragment extends Fragment {
         for(int i = 0; i < numDataPoints; i++){
             x = x + 0.1; // pour avoir une ligne continue
             y = Math.sin(x);
-            series1.appendData(new DataPoint(x,y), true, 100);
+
+            series1.setColor(Color.BLUE);
+            series1.appendData(new DataPoint(x,y), true, 60);
         }
         graph.addSeries(series1);
 

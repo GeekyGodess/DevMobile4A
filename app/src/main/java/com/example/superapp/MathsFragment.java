@@ -60,6 +60,21 @@ public class MathsFragment extends Fragment {
             }
         });
 
+
+        // Superposition de sin et cos
+
+        Button btn_sincos = (Button)view.findViewById(R.id.btn_sin_cos);
+
+        btn_sincos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.fragment_container,new SinCosFragment());
+                fr.commit();
+            }
+        });
+
+
         return view;
     }
 }
