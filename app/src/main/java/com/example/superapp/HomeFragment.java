@@ -45,7 +45,7 @@ public class HomeFragment extends Fragment {
 
     private void  getFacts(){
         affichage_resultat= (TextView)view.findViewById(R.id.result_view);
-        Call<NumberFact> call = numbersAPI.getFacts();
+        Call<NumberFact> call = numbersAPI.getFacts(42);
 
         call.enqueue(new Callback<NumberFact>(){
             @Override
