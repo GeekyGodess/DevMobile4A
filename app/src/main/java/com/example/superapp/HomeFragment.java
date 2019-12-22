@@ -7,6 +7,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import retrofit2.Call;
@@ -15,11 +17,14 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private NumbersAPI numbersAPI;
     private  TextView affichage_resultat;
     private View view;
+    private EditText input;
+    private int number;
+    private Button button;
 
     @Nullable
     @Override
@@ -36,16 +41,24 @@ public class HomeFragment extends Fragment {
                 .build();
 
         numbersAPI = retrofit.create(NumbersAPI.class);
-        getFacts();
+        button = (Button)view.findViewById(R.id.validation);
+        input = (EditText)view.findViewById(R.id.input_number);
 
+            button.setOnClickListener(this);
+            getFacts();
 
 
         return view;
+
+
+
     }
 
     private void  getFacts(){
         affichage_resultat= (TextView)view.findViewById(R.id.result_view);
-        Call<NumberFact> call = numbersAPI.getFacts(42);
+
+        System.out.println("NUmber0: " + number);
+        Call<NumberFact> call = numbersAPI.getFacts(number);
 
         call.enqueue(new Callback<NumberFact>(){
             @Override
@@ -82,6 +95,15 @@ public class HomeFragment extends Fragment {
 
         });
 
+
+    }
+
+    public void onClick(View v){
+        System.out.println("VICTOIIIIIIIIIIIIIIIIIIIREEEEEEEEEE");
+        String resultat = input.getText().toString();
+         number = Integer.parseInt(resultat);
+         System.out.println("Number: " + number);
+         getFacts();
 
     }
 }

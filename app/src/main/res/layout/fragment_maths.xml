@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent" android:layout_height="match_parent">
 
     <Button
@@ -7,36 +8,65 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_above="@id/btn_cos"
-        android:textColor="@color/colorPrimary"
         android:layout_centerInParent="true"
-        android:text="Fonction Sin"/>
+        android:text="Fonction Sin"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
+        android:typeface="serif" />
 
 
     <Button
         android:id="@+id/btn_cos"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimary"
         android:layout_centerInParent="true"
-        android:text="Fonction Cos"/>
+        android:text="Fonction Cos"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/btn_exp"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_cos"
-        android:textColor="@color/colorPrimary"
         android:layout_centerInParent="true"
-        android:text="Fonction Exp"/>
+        android:text="Fonction Exp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
+        android:typeface="serif" />
 
     <Button
         android:id="@+id/btn_sin_cos"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/btn_exp"
-        android:textColor="@color/colorPrimary"
         android:layout_centerInParent="true"
-        android:text="Superposition Sin et Cos"/>
+        android:text="Superposition Sin et Cos"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="italic"
+        android:typeface="serif" />
+
+    <TextView
+        android:id="@+id/title_trace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:text="Trace une fonction mathématique"
+        android:textColor="#000"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:typeface="monospace"
+        app:fontFamily="cursive" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="162dp"
+        android:layout_height="223dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/matos" />
 
 
 </RelativeLayout>

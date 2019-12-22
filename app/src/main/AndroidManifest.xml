@@ -20,7 +20,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="Super App">
+            android:label="Mathem'App">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
