@@ -17,6 +17,9 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/*Joue le rôle de la vue dans le modèle MVC: IHM pour l'utilisateur et envoie
+les commandes rentrées par l'utilisateur au controlleur*/
+
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private NumbersAPI numbersAPI;
@@ -26,11 +29,12 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private int number;
     private Button button;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_home,null);
-        System.out.println("BONJOUUUUR\n");
+
 
 
 
@@ -57,7 +61,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private void  getFacts(){
         affichage_resultat= (TextView)view.findViewById(R.id.result_view);
 
-        System.out.println("NUmber0: " + number);
+
         Call<NumberFact> call = numbersAPI.getFacts(number);
 
         call.enqueue(new Callback<NumberFact>(){
@@ -65,31 +69,27 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
             public void onResponse(Call<NumberFact> call, Response<NumberFact> response) {
 
                 if(!response.isSuccessful()){
-                    System.out.println("ICI\n");
                     affichage_resultat.setText("Code: " + response.code() );
                     return;
                 }
-                System.out.println("LA\n");
-                NumberFact numberFacts = response.body();
 
-                //for(NumberFact nbf: numberFacts) {
-                    System.out.println("HELLO\n");
+
+
+
+
                     String content = "";
                     content += "Nombre entré: " + response.body().getNumber() + "\n";
                     content += " Fait amusant: " + response.body().getText() + "\n";
-                    System.out.println("BOUH\n");
+
 
                     affichage_resultat.setText(content);
-                //}
+
 
             }
 
             @Override
             public void onFailure(Call<NumberFact> call, Throwable t) {
-                System.out.println("HERE WE GO\n");
                 affichage_resultat.setText(t.getMessage());
-                //affichage_resultat.setText("Espoir!");
-
             }
 
 
@@ -99,10 +99,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     }
 
     public void onClick(View v){
-        System.out.println("VICTOIIIIIIIIIIIIIIIIIIIREEEEEEEEEE");
         String resultat = input.getText().toString();
          number = Integer.parseInt(resultat);
-         System.out.println("Number: " + number);
          getFacts();
 
     }
