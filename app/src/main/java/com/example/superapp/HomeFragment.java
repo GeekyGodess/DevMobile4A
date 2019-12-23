@@ -17,9 +17,6 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/*Joue le rôle de la vue dans le modèle MVC: IHM pour l'utilisateur et envoie
-les commandes rentrées par l'utilisateur au controlleur*/
-
 public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private NumbersAPI numbersAPI;
@@ -28,7 +25,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
     private EditText input;
     private int number;
     private Button button;
-
 
     @Nullable
     @Override
@@ -48,8 +44,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
         button = (Button)view.findViewById(R.id.validation);
         input = (EditText)view.findViewById(R.id.input_number);
 
-            button.setOnClickListener(this);
-            getFacts();
+        button.setOnClickListener(this);
+        getFacts();
 
 
         return view;
@@ -60,7 +56,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     private void  getFacts(){
         affichage_resultat= (TextView)view.findViewById(R.id.result_view);
-
 
         Call<NumberFact> call = numbersAPI.getFacts(number);
 
@@ -73,17 +68,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
                     return;
                 }
 
+                NumberFact numberFacts = response.body();
 
+                String content = "";
+                content += "Nombre entré: " + response.body().getNumber() + "\n";
+                content += " Fait amusant: " + response.body().getText() + "\n";
 
-
-
-                    String content = "";
-                    content += "Nombre entré: " + response.body().getNumber() + "\n";
-                    content += " Fait amusant: " + response.body().getText() + "\n";
-
-
-                    affichage_resultat.setText(content);
-
+                affichage_resultat.setText(content);
 
             }
 
@@ -100,12 +91,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener{
 
     public void onClick(View v){
         String resultat = input.getText().toString();
-         number = Integer.parseInt(resultat);
-         getFacts();
+        number = Integer.parseInt(resultat);
+        getFacts();
 
     }
 }
-
-
-
-
