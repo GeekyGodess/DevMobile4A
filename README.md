@@ -1,4 +1,5 @@
 #Mathem'App
+<!-- -->
 _une application qui fait toucher du doigt les mathématiques_     
 
 
@@ -12,4 +13,4 @@ Quand on ouvre l'application, on tombe sur le premier fragment, qui fait appel �
 Le but est d'apprendre un fait amusant sur un nombre. 
 
 D'entrée, le nombre sur lequel on apprend un fait amusant est 0, comme on peut le voir sur la capture ci-dessous:
-![GitHub Logo](images_readme/Ecran_liste_personnages.jpg)
+![GitHub Logo](images_readme/arrivee_appli.jpg)
